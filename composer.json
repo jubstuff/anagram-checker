@@ -1,6 +1,7 @@
 {
     "name": "jubstuff/is-anagram",
     "description": "A CLI app to check if two words are anagrams.",
+    "type": "project",
     "license": "MIT",
     "authors": [
         {
@@ -19,6 +20,9 @@
         "phpmd/phpmd": "^2.6",
         "phpstan/phpstan-shim": "^0.9"
     },
+    "bin": [
+        "bin/is-anagram"
+    ],
     "autoload": {
         "psr-4": {
             "Jubstuff\\": "src/"
