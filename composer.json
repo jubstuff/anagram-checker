@@ -9,7 +9,8 @@
         }
     ],
     "require": {
-        "php": ">=7.0.0"
+        "php": ">=7.0.0",
+        "symfony/console": "^3.4"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.5",
@@ -20,12 +21,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Jubstuff\\AnagramChecker\\": "src/"
+            "Jubstuff\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Jubstuff\\AnagramChecker\\": [
+            "Jubstuff\\Test\\": [
                 "tests/",
                 "tests/Fake"
             ]

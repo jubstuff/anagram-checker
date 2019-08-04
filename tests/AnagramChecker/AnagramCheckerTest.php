@@ -4,8 +4,9 @@
  *
  * @license http://opensource.org/licenses/MIT MIT
  */
-namespace Jubstuff\AnagramChecker;
+namespace Jubstuff\Test\AnagramChecker;
 
+use Jubstuff\AnagramChecker\AnagramChecker;
 use PHPUnit\Framework\TestCase;
 
 class AnagramCheckerTest extends TestCase
