@@ -1,0 +1,14 @@
+#!/usr/bin/env php
+<?php
+
+use Jubstuff\AnagramChecker\Command\IsAnagramCommand;
+use Symfony\Component\Console\Application;
+
+require __DIR__ . '/../vendor/autoload.php';
+
+$application = new Application();
+
+$application->add(new IsAnagramCommand());
+$application->setDefaultCommand('is-anagram');
+
+$application->run();
