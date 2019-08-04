@@ -1,13 +1,13 @@
-# Anagram Checker
+# Is Anagram
 
-Anagram Checker is a CLI app to check if two words are anagrams.
+Is Anagram is a CLI app to check if two words are anagrams.
 
 ## Installation
 
 Use composer to install it 
 
 ```bash
-composer install jubstuff/anagram-checker
+composer install jubstuff/is-anagram
 ```
 
 ## Usage
