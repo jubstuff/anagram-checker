@@ -29,6 +29,24 @@ class IsAnagramCommandTest extends TestCase
         $this->commandTester = new CommandTester($this->command);
     }
 
+    public function testPromptIsCorrectlyPrinted()
+    {
+        $this->commandTester->setInputs([
+            'first-word',
+            'second-word',
+        ]);
+
+        $this->commandTester->execute([
+            'command' => $this->command->getName(),
+        ]);
+
+        // the output of the command in the console
+        $output = $this->commandTester->getDisplay();
+        $this->assertContains('Welcome to "Is Anagram?"', $output);
+        $this->assertContains('Enter the first string', $output);
+        $this->assertContains('Enter the second string', $output);
+    }
+
     public function testExecutionWithAnagrams()
     {
         $this->commandTester->setInputs([
@@ -42,9 +60,6 @@ class IsAnagramCommandTest extends TestCase
 
         // the output of the command in the console
         $output = $this->commandTester->getDisplay();
-        $this->assertContains('Welcome to "Is Anagram?"', $output);
-        $this->assertContains('Enter the first string', $output);
-        $this->assertContains('Enter the second string', $output);
 
         $this->assertContains('"roma" and "amor" are anagrams.', $output);
     }
@@ -62,9 +77,6 @@ class IsAnagramCommandTest extends TestCase
 
         // the output of the command in the console
         $output = $this->commandTester->getDisplay();
-        $this->assertContains('Welcome to "Is Anagram?"', $output);
-        $this->assertContains('Enter the first string', $output);
-        $this->assertContains('Enter the second string', $output);
 
         $this->assertContains('"roma" and "asd" are not anagrams.', $output);
     }
