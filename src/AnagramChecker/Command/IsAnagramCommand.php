@@ -6,7 +6,6 @@ namespace Jubstuff\AnagramChecker\Command;
 
 use Jubstuff\AnagramChecker\AnagramChecker;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
@@ -19,15 +18,16 @@ class IsAnagramCommand extends Command
     {
         $output->writeln([
             'Welcome to "Is Anagram?"',
-            "Enter two strings and I'll tell you if they are anagrams:",
+            "Enter two strings and I'll tell you if they are anagrams.",
+            '',
         ]);
 
         $questionHelper = $this->getHelper('question');
 
-        $question = new Question('Enter the first string', '');
+        $question = new Question('Enter the first string: ', '');
         $word1    = $questionHelper->ask($input, $output, $question);
 
-        $question = new Question('Enter the second string', '');
+        $question = new Question('Enter the second string: ', '');
         $word2    = $questionHelper->ask($input, $output, $question);
 
 
