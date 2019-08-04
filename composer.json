@@ -1,6 +1,6 @@
 {
-    "name": "jubstuff/anagram-checker",
-    "description": "",
+    "name": "jubstuff/is-anagram",
+    "description": "A CLI app to check if two words are anagrams.",
     "license": "MIT",
     "authors": [
         {
