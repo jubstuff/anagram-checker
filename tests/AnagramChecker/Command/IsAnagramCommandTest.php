@@ -5,29 +5,43 @@ namespace Jubstuff\Test\AnagramChecker\Command;
 use Jubstuff\AnagramChecker\Command\IsAnagramCommand;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Tester\CommandTester;
 
 class IsAnagramCommandTest extends TestCase
 {
-    public function testExecutionWithAnagrams()
+    /**
+     * @var CommandTester
+     */
+    protected $commandTester;
+
+    /**
+     * @var Command
+     */
+    protected $command;
+
+    protected function setUp()
     {
         $application = new Application();
         $application->add(new IsAnagramCommand());
 
-        $command       = $application->find('is-anagram');
-        $commandTester = new CommandTester($command);
+        $this->command       = $application->find('is-anagram');
+        $this->commandTester = new CommandTester($this->command);
+    }
 
-        $commandTester->setInputs([
+    public function testExecutionWithAnagrams()
+    {
+        $this->commandTester->setInputs([
             'roma',
             'amor',
         ]);
 
-        $commandTester->execute([
-            'command' => $command->getName(),
+        $this->commandTester->execute([
+            'command' => $this->command->getName(),
         ]);
 
         // the output of the command in the console
-        $output = $commandTester->getDisplay();
+        $output = $this->commandTester->getDisplay();
         $this->assertContains('Welcome to "Is Anagram?"', $output);
         $this->assertContains('Enter the first string', $output);
         $this->assertContains('Enter the second string', $output);
@@ -37,23 +51,17 @@ class IsAnagramCommandTest extends TestCase
 
     public function testExecutionWithNoAnagrams()
     {
-        $application = new Application();
-        $application->add(new IsAnagramCommand());
-
-        $command       = $application->find('is-anagram');
-        $commandTester = new CommandTester($command);
-
-        $commandTester->setInputs([
+        $this->commandTester->setInputs([
             'roma',
             'asd',
         ]);
 
-        $commandTester->execute([
-            'command' => $command->getName(),
+        $this->commandTester->execute([
+            'command' => $this->command->getName(),
         ]);
 
         // the output of the command in the console
-        $output = $commandTester->getDisplay();
+        $output = $this->commandTester->getDisplay();
         $this->assertContains('Welcome to "Is Anagram?"', $output);
         $this->assertContains('Enter the first string', $output);
         $this->assertContains('Enter the second string', $output);
