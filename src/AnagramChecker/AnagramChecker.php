@@ -4,12 +4,11 @@
  *
  * @license http://opensource.org/licenses/MIT MIT
  */
-
 namespace Jubstuff\AnagramChecker;
 
 class AnagramChecker
 {
-    public function isAnagram(string $word1, string $word2): bool
+    public function isAnagram(string $word1, string $word2) : bool
     {
         if (strlen($word1) !== strlen($word2)) {
             return false;
@@ -25,7 +24,7 @@ class AnagramChecker
         return true;
     }
 
-    private function sortWordChars(string $word): array
+    private function sortWordChars(string $word) : array
     {
         $chars = str_split(strtolower($word));
         sort($chars);

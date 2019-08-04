@@ -1,5 +1,4 @@
 <?php
-
 namespace Jubstuff\Test\AnagramChecker\Command;
 
 use Jubstuff\AnagramChecker\Command\IsAnagramCommand;
@@ -25,7 +24,7 @@ class IsAnagramCommandTest extends TestCase
         $application = new Application();
         $application->add(new IsAnagramCommand());
 
-        $this->command       = $application->find('is-anagram');
+        $this->command = $application->find('is-anagram');
         $this->commandTester = new CommandTester($this->command);
     }
 
@@ -80,6 +79,4 @@ class IsAnagramCommandTest extends TestCase
 
         $this->assertContains('"roma" and "asd" are not anagrams.', $output);
     }
-
-
 }

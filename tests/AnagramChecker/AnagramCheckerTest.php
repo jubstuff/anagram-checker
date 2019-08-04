@@ -29,28 +29,28 @@ class AnagramCheckerTest extends TestCase
 
     public function testSameWordIsAnagram()
     {
-        $this->assertTrue( $this->ac->isAnagram( 'roma', 'roma' ) );
+        $this->assertTrue($this->ac->isAnagram('roma', 'roma'));
     }
 
     public function testDifferentLengthWordsAreNotAnagrams()
     {
-        $this->assertFalse( $this->ac->isAnagram( 'roma', 'amore' ));
+        $this->assertFalse($this->ac->isAnagram('roma', 'amore'));
     }
 
     public function testCanSpotRealAnagrams()
     {
-        $this->assertTrue( $this->ac->isAnagram( 'roma', 'amor' ) );
-        $this->assertTrue( $this->ac->isAnagram( 'roma', 'mora' ) );
-        $this->assertTrue( $this->ac->isAnagram( 'roma', 'orma' ) );
+        $this->assertTrue($this->ac->isAnagram('roma', 'amor'));
+        $this->assertTrue($this->ac->isAnagram('roma', 'mora'));
+        $this->assertTrue($this->ac->isAnagram('roma', 'orma'));
     }
 
     public function testTwoWordWithSameLengthAreNotAnagrams()
     {
-        $this->assertFalse( $this->ac->isAnagram( 'roma', 'amoo' ));
+        $this->assertFalse($this->ac->isAnagram('roma', 'amoo'));
     }
 
     public function testCheckIsCaseInsensitive()
     {
-        $this->assertTrue( $this->ac->isAnagram( 'Roma', 'AMOR' ) );
+        $this->assertTrue($this->ac->isAnagram('Roma', 'AMOR'));
     }
 }

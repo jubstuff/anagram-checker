@@ -1,8 +1,5 @@
 <?php
-
-
 namespace Jubstuff\AnagramChecker\Command;
-
 
 use Jubstuff\AnagramChecker\AnagramChecker;
 use Symfony\Component\Console\Command\Command;
@@ -25,11 +22,10 @@ class IsAnagramCommand extends Command
         $questionHelper = $this->getHelper('question');
 
         $question = new Question('Enter the first string: ', '');
-        $word1    = $questionHelper->ask($input, $output, $question);
+        $word1 = $questionHelper->ask($input, $output, $question);
 
         $question = new Question('Enter the second string: ', '');
-        $word2    = $questionHelper->ask($input, $output, $question);
-
+        $word2 = $questionHelper->ask($input, $output, $question);
 
         $am = new AnagramChecker();
 
@@ -42,7 +38,5 @@ class IsAnagramCommand extends Command
                 sprintf('"%s" and "%s" are not anagrams.', $word1, $word2),
             ]);
         }
-
-
     }
 }
