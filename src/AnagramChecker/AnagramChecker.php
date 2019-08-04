@@ -27,7 +27,7 @@ class AnagramChecker
 
     private function sortWordChars(string $word): array
     {
-        $chars = str_split($word);
+        $chars = str_split(strtolower($word));
         sort($chars);
 
         return $chars;

@@ -48,4 +48,9 @@ class AnagramCheckerTest extends TestCase
     {
         $this->assertFalse( $this->ac->isAnagram( 'roma', 'amoo' ));
     }
+
+    public function testCheckIsCaseInsensitive()
+    {
+        $this->assertTrue( $this->ac->isAnagram( 'Roma', 'AMOR' ) );
+    }
 }
